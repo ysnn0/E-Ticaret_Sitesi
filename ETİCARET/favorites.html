@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorilerim | NovaMarket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-lg" style="background: linear-gradient(90deg, #0f2027 0%, #203a43 50%, #2c5364 100%);">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="index.html"><i class="fas fa-bolt text-warning me-2"></i>NovaMarket</a>
+            <div class="ms-auto d-flex gap-3">
+                <a href="index.html" class="nav-link text-white">Anasayfa</a>
+                <a href="product-list.html" class="nav-link text-white">Ürünler</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h2 class="mb-4 fw-bold"><i class="fas fa-heart text-danger me-2"></i>Favori Ürünlerim</h2>
+        
+        <div class="row g-4" id="favorites-container">
+            </div>
+
+        <div id="no-favorites" class="text-center py-5" style="display: none;">
+            <i class="far fa-heart fa-4x text-muted mb-3"></i>
+            <h3>Henüz favori ürününüz yok.</h3>
+            <a href="product-list.html" class="btn btn-primary mt-3">Keşfetmeye Başla</a>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script> <script src="js/cart.js"></script> <script>
+        // Sadece bu sayfaya özel listeleme scripti
+        function renderFavoritesPage() {
+            const container = document.getElementById("favorites-container");
+            const emptyMsg = document.getElementById("no-favorites");
+            
+            // 1. Favori ID'lerini al
+            const favIds = getFavorites();
+
+            if (favIds.length === 0) {
+                container.style.display = 'none';
+                emptyMsg.style.display = 'block';
+                return;
+            }
+
+            container.style.display = 'flex';
+            emptyMsg.style.display = 'none';
+
+            // 2. Bu ID'lere sahip ürünleri products dizisinden bul
+            const favProducts = products.filter(p => favIds.includes(p.id));
+
+            // 3. Ekrana Bas
+            container.innerHTML = favProducts.map(product => `
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                        <img src="${product.img}" class="card-img-top" alt="${product.name}" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h6 class="card-title text-truncate">${product.name}</h6>
+                            <p class="card-text text-primary fw-bold">${product.price.toLocaleString('tr-TR')} TL</p>
+                            
+                            <div class="d-grid gap-2">
+                                <a href="product-detail.html?id=${product.id}" class="btn btn-sm btn-outline-dark">İncele</a>
+                                <button onclick="toggleFavorite(${product.id})" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash-alt me-1"></i>Kaldır
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ürün Kartı Efektleri */
+.product-card {
+    transition: all 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Yukarı doğru hafif hareket */
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important; /* Gölgeyi büyüt */
+}
+
+/* Sidebar Kategori Linkleri */
+.list-group-item.active {
+    border-color: var(--bs-primary);
+}
+
+.list-group-item-action:hover:not(.active) {
+    background-color: #f8f9fa;
+    color: var(--bs-primary);
+}
+
+/* Navbar Sepet İkonu */
+.fa-shopping-cart {
+    transition: transform 0.2s;
+}
+.fa-shopping-cart:hover {
+    transform: scale(1.1);
+}
+/* style.css içine ekleyin */
+
+/* Kart Animasyonları */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+/* Detay Sayfası Resim Zoom Efekti */
+.hover-zoom {
+    transition: transform 0.5s ease;
+    cursor: zoom-in;
+}
+.hover-zoom:hover {
+    transform: scale(1.05);
+}
+
+/* Buton Efekti */
+.hover-effect:active {
+    transform: scale(0.95);
+}
+
+/* Sidebar Filtre Linkleri */
+.list-group-item.active {
+    background-color: #212529 !important; /* Bootstrap Dark rengi */
+    border-color: #212529 !important;
+}
+/* style.css EN ALTINA EKLE */
+
+/* Form Inputları için modern görünüm */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: #203a43;
+    font-weight: bold;
+}
+
+.form-control:focus {
+    border-color: #203a43;
+    box-shadow: 0 0 0 0.25rem rgba(32, 58, 67, 0.25);
+}
+
+/* Giriş butonu hover efekti */
+.btn-dark {
+    background-color: #203a43;
+    border-color: #203a43;
+    transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #0f2027;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+/* Kategori Kartları Zoom Efekti */
+.zoom-effect img {
+    transition: transform 0.5s ease;
+}
+
+.zoom-effect:hover img {
+    transform: scale(1.1); /* Resim %10 büyür */
+    opacity: 0.3 !important; /* Resim biraz daha kararır, yazı okunur */
+}
+
+.zoom-effect .card-title {
+    transition: letter-spacing 0.3s ease;
+}
+
+.zoom-effect:hover .card-title {
+    letter-spacing: 2px; /* Harf aralığı açılır */
+}
+/* --- Slider Özelleştirmeleri --- */
+
+/* Slider resim yüksekliğini sabitleyelim */
+.slider-img {
+    height: 600px;
+    object-fit: cover; /* Resmi bozmadan kırparak sığdırır */
+    filter: brightness(0.7); /* Resimleri %30 karart (Yazı okunsun diye) */
+}
+
+/* Mobilde slider boyunu biraz küçültelim */
+@media (max-width: 768px) {
+    .slider-img {
+        height: 400px;
+    }
+}
+
+/* Slider üzerindeki yazıları biraz daha yukarı alalım */
+.carousel-caption {
+    bottom: 20%;
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Shop | Ödeme ve Sipariş</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-lg" style="background: linear-gradient(90deg, #0f2027 0%, #203a43 50%, #2c5364 100%);">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="index.html">
+                <i class="fas fa-bolt text-warning me-2"></i>NovaMarket
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Anasayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="product-list.html">Tüm Ürünler</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="cart.html" class="text-white position-relative text-decoration-none me-2">
+                        <i class="fas fa-shopping-bag fa-lg"></i>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">0</span>
+                    </a>
+                    <div id="user-actions" class="d-flex align-items-center">
+                        <a href="login.html" class="btn btn-outline-light btn-sm px-3 rounded-pill me-2">Giriş</a>
+                        <a href="register.html" class="btn btn-light btn-sm px-3 rounded-pill text-dark fw-bold">Kayıt</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Sipariş Özeti</span>
+                    <span class="badge bg-primary rounded-pill" id="checkout-count">0</span>
+                </h4>
+                <ul class="list-group mb-3 shadow-sm" id="checkout-items">
+                    </ul>
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <span>Toplam Tutar (KDV Dahil)</span>
+                            <strong id="checkout-total">0 TL</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-warning mt-3 small">
+                    <i class="fas fa-info-circle me-1"></i> Demo işlemidir, kartınızdan para çekilmez.
+                </div>
+            </div>
+
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">Fatura ve Teslimat Adresi</h4>
+                <form id="checkoutForm" class="needs-validation" novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label class="form-label">Ad</label>
+                            <input type="text" class="form-control" required>
+                            <div class="invalid-feedback">Ad alanı zorunludur.</div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-label">Soyad</label>
+                            <input type="text" class="form-control" required>
+                            <div class="invalid-feedback">Soyad alanı zorunludur.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label">E-Posta</label>
+                            <input type="email" class="form-control" placeholder="ornek@site.com" required>
+                            <div class="invalid-feedback">Geçerli bir e-posta giriniz.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label">Adres</label>
+                            <input type="text" class="form-control" placeholder="Mahalle, Cadde, Sokak..." required>
+                            <div class="invalid-feedback">Adres girilmesi zorunludur.</div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <label class="form-label">Ülke</label>
+                            <select class="form-select" required>
+                                <option value="">Seçiniz...</option>
+                                <option>Türkiye</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Şehir</label>
+                            <select class="form-select" required>
+                                <option value="">Seçiniz...</option>
+                                <option>İstanbul</option>
+                                <option>Ankara</option>
+                                <option>İzmir</option>
+                                <option>Diğer</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">Posta Kodu</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h4 class="mb-3">Ödeme Bilgileri</h4>
+
+                    <div class="row gy-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Kart Üzerindeki İsim</label>
+                            <input type="text" class="form-control" required>
+                            <small class="text-muted">Kartın ön yüzündeki tam isim</small>
+                            <div class="invalid-feedback">Kart ismi zorunludur.</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Kart Numarası</label>
+                            <input type="text" class="form-control" placeholder="0000 0000 0000 0000" required minlength="16" maxlength="19">
+                            <div class="invalid-feedback">Geçerli bir kart numarası giriniz.</div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">Son Kullanma (Ay/Yıl)</label>
+                            <input type="text" class="form-control" placeholder="MM/YY" required>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">CVV</label>
+                            <input type="text" class="form-control" placeholder="123" required maxlength="3">
+                            <div class="invalid-feedback">Güvenlik kodu gerekli.</div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="mb-3 p-3 bg-white border rounded">
+                        <label class="form-label fw-bold">Siparişi Onaylamak İçin Kodu Girin</label>
+                        <div class="d-flex align-items-center mb-2">
+                            <div id="captcha-display" class="fw-bold fs-4 text-secondary font-monospace me-3 bg-light p-2 border"></div>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="refreshCaptcha()">Yenile</button>
+                        </div>
+                        <input type="text" class="form-control" id="captchaInput" placeholder="Kodu buraya yazın" required>
+                        <div class="invalid-feedback">Güvenlik kodu hatalı!</div>
+                    </div>
+
+                    <button class="btn btn-success w-100 btn-lg" type="submit">
+                        <i class="fas fa-check-circle me-2"></i>Siparişi Tamamla
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/captcha.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+
+    <script>
+        // 1. GÜVENLİK KONTROLÜ
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (!currentUser) {
+            alert("Ödeme sayfasına erişmek için giriş yapmalısınız.");
+            window.location.href = "login.html";
+        }
+
+        // 2. SEPET VERİLERİNİ ÇEK VE GÖSTER
+        document.addEventListener("DOMContentLoaded", () => {
+            // Navbar kullanıcı kontrolünü main.js yapıyor ama burada da çağıralım
+            if(typeof checkLoginStatus === "function") checkLoginStatus();
+
+            const cart = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+            const itemList = document.getElementById("checkout-items");
+            const totalEl = document.getElementById("checkout-total");
+            const countEl = document.getElementById("checkout-count");
+
+            if (cart.length === 0) {
+                alert("Sepetiniz boş! Ürünlere yönlendiriliyorsunuz.");
+                window.location.href = "product-list.html";
+                return;
+            }
+
+            let total = 0;
+            let totalQty = 0;
+
+            itemList.innerHTML = cart.map(item => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                totalQty += item.qty;
+                return `
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">${item.name}</h6>
+                        <small class="text-muted">${item.qty} adet</small>
+                    </div>
+                    <span class="text-muted">${itemTotal.toLocaleString('tr-TR')} TL</span>
+                </li>`;
+            }).join('');
+
+            totalEl.innerText = total.toLocaleString('tr-TR') + " TL";
+            countEl.innerText = totalQty;
+        });
+
+        // 3. FORM GÖNDERME VE SİPARİŞ OLUŞTURMA
+        document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const captchaInput = document.getElementById("captchaInput");
+            const captchaDisplay = document.getElementById("captcha-display").innerText;
+            
+            let isValid = true;
+
+            // HTML5 Validation
+            if (!form.checkValidity()) {
+                event.stopPropagation();
+                isValid = false;
+            }
+
+            // Captcha Kontrolü
+            if (captchaInput.value.toUpperCase() !== captchaDisplay) {
+                captchaInput.classList.add("is-invalid");
+                isValid = false;
+            } else {
+                captchaInput.classList.remove("is-invalid");
+                captchaInput.classList.add("is-valid");
+            }
+
+            form.classList.add('was-validated');
+
+            if (isValid) {
+                // A) Sipariş Oluştur
+                const cart = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+                const totalAmount = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+                const order = {
+                    id: Math.floor(Math.random() * 900000) + 100000, // 6 haneli ID
+                    date: new Date().toLocaleDateString('tr-TR'),
+                    status: "Hazırlanıyor",
+                    total: totalAmount,
+                    items: cart
+                };
+
+                // B) Siparişi Kaydet
+                const existingOrders = JSON.parse(localStorage.getItem("userOrders")) || [];
+                existingOrders.push(order);
+                localStorage.setItem("userOrders", JSON.stringify(existingOrders));
+
+                // C) Sepeti Temizle
+                localStorage.removeItem("shoppingCart");
+
+                // D) Yönlendir
+                alert("Siparişiniz başarıyla alındı! Teşekkür ederiz.");
+                window.location.href = "customer/orders.html"; 
+            }
+        });
+    </script>
+</body>
+</html>

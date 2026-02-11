@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaMarket | Anasayfa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-lg" style="background: linear-gradient(90deg, #0f2027 0%, #203a43 50%, #2c5364 100%);">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="index.html">
+            <i class="fas fa-bolt text-warning me-2"></i>NovaMarket
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Anasayfa</a></li>
+                <li class="nav-item"><a class="nav-link" href="product-list.html">Tüm Ürünler</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-3">
+                <a href="cart.html" class="text-white position-relative text-decoration-none me-2">
+                    <i class="fas fa-shopping-bag fa-lg"></i>
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">0</span>
+                </a>
+                <div id="user-actions" class="d-flex align-items-center">
+    <a href="login.html" class="btn btn-outline-light btn-sm px-3 rounded-pill me-2">Giriş</a>
+    <a href="register.html" class="btn btn-light btn-sm px-3 rounded-pill text-dark fw-bold">Kayıt</a>
+</div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <div id="mainSlider" class="carousel slide" data-bs-ride="carousel">
+        
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            
+            <div class="carousel-item active" data-bs-interval="5000">
+                <div class="overlay"></div>
+                <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=1600&h=600" class="d-block w-100 slider-img" alt="Teknoloji">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4 fw-bold">Teknolojiyi Yakala</h2>
+                    <p class="lead">En yeni bilgisayar ve telefon modellerinde açılışa özel fiyatlar.</p>
+                    <a href="product-list.html?category=bilgisayar" class="btn btn-primary btn-lg rounded-pill px-4">İncele</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" data-bs-interval="5000">
+                <div class="overlay"></div>
+                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&q=80&w=1600&h=600" class="d-block w-100 slider-img" alt="Mobilya">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4 fw-bold">Evinizi Yenileyin</h2>
+                    <p class="lead">Modern mobilyalarla konforu evinize taşıyın.</p>
+                    <a href="product-list.html?category=mobilya" class="btn btn-warning text-dark btn-lg rounded-pill px-4">Keşfet</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" data-bs-interval="5000">
+                <div class="overlay"></div>
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=1600&h=600" class="d-block w-100 slider-img" alt="Alışveriş">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4 fw-bold">Büyük Sezon İndirimi</h2>
+                    <p class="lead">Seçili ürünlerde %50'ye varan indirimleri kaçırmayın.</p>
+                    <a href="product-list.html" class="btn btn-light text-dark btn-lg rounded-pill px-4">Alışverişe Başla</a>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <div class="container my-5">
+    <h2 class="text-center mb-4 fw-bold">Kategorilere Göz At</h2>
+    <div class="row g-4">
+        
+        <div class="col-md-4 col-sm-6">
+            <a href="product-list.html?category=bilgisayar" class="text-decoration-none">
+                <div class="card bg-dark text-white border-0 zoom-effect overflow-hidden rounded-4 shadow">
+                    <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=800" class="card-img opacity-50" alt="Bilgisayar" style="height: 200px; object-fit: cover;">
+                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                        <h4 class="card-title fw-bold text-uppercase border-bottom pb-2">Bilgisayar</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <a href="product-list.html?category=oyun" class="text-decoration-none">
+                <div class="card bg-dark text-white border-0 zoom-effect overflow-hidden rounded-4 shadow">
+                    <img src="https://images.unsplash.com/photo-1600861194942-f883de0dfe96?auto=format&fit=crop&q=80&w=800" class="card-img opacity-50" alt="Oyun" style="height: 200px; object-fit: cover;">
+                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                        <h4 class="card-title fw-bold text-uppercase border-bottom pb-2">Oyun Dünyası</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <a href="product-list.html?category=telefon" class="text-decoration-none">
+                <div class="card bg-dark text-white border-0 zoom-effect overflow-hidden rounded-4 shadow">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800" class="card-img opacity-50" alt="Telefon" style="height: 200px; object-fit: cover;">
+                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                        <h4 class="card-title fw-bold text-uppercase border-bottom pb-2">Telefon</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <a href="product-list.html?category=mobilya" class="text-decoration-none">
+                <div class="card bg-dark text-white border-0 zoom-effect overflow-hidden rounded-4 shadow">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800" class="card-img opacity-50" alt="Mobilya" style="height: 200px; object-fit: cover;">
+                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                        <h4 class="card-title fw-bold text-uppercase border-bottom pb-2">Mobilya</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <a href="product-list.html?category=bebek" class="text-decoration-none">
+                <div class="card bg-dark text-white border-0 zoom-effect overflow-hidden rounded-4 shadow">
+                    <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&q=80&w=800" class="card-img opacity-50" alt="Bebek" style="height: 200px; object-fit: cover;">
+                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                        <h4 class="card-title fw-bold text-uppercase border-bottom pb-2">Bebek Mağazası</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <a href="product-list.html?category=petshop" class="text-decoration-none">
+                <div class="card bg-dark text-white border-0 zoom-effect overflow-hidden rounded-4 shadow">
+                    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800" class="card-img opacity-50" alt="Petshop" style="height: 200px; object-fit: cover;">
+                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                        <h4 class="card-title fw-bold text-uppercase border-bottom pb-2">Petshop</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <h3 class="mb-4 text-primary"><i class="fas fa-robot me-2"></i>Sizin İçin Önerilenler (AI)</h3>
+            <div class="row" id="ai-products">
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 text-center mt-5">
+        <p>&copy; Yasin DAĞ E-Ticaret Ödevi</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

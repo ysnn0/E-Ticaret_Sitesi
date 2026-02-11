@@ -1,0 +1,43 @@
+/* css/admin.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* Sol Menü (Sidebar) Tasarımı */
+.sidebar {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #343a40 0%, #212529 100%);
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar .nav-link {
+    color: #c2c7d0;
+    padding: 15px 20px;
+    transition: all 0.3s;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+    background-color: #007bff; /* Mavi aktif renk */
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.sidebar .nav-link i {
+    width: 25px; /* İkonların hizası bozulmasın */
+}
+
+/* İçerik Kartları */
+.card-box {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.card-box:hover {
+    transform: translateY(-5px);
+}
